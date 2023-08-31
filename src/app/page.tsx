@@ -1,7 +1,6 @@
 "use client";
 
-import { Calculadora } from "@/components/Calculadora";
-import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import { Calculadora } from "@/components/Calculator";
 
 const HomePage = () => {
 

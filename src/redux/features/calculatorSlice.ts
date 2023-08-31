@@ -20,15 +20,23 @@ const calculatorSlice = createSlice({
     },
     calculateResult: (state) => {
       try {
-        const result = eval(state.displayValue);
-        state.displayValue = result.toString();
+        const expression = state.displayValue;
+        const result = eval(expression.toString());
+        state.displayValue = result
         state.history.push({
-            expression: state.displayValue,
-            result: result.toString(),
+            expression,
+            result
           });
       } catch (error) {
         state.displayValue = 'Error';
       }
+    },
+    deleteLastCharacter: (state) => {
+      state.displayValue = state.displayValue.slice(0, -1); // Elimina el último carácter
+    },
+    removeCharacter: (state, action) => {
+   state.history =   state.history.filter( 
+    op => op.expression !== action.payload.expression )
     },
     clearDisplay: (state) => {
       state.displayValue = '';
@@ -37,6 +45,6 @@ const calculatorSlice = createSlice({
   },
 });
 
-export const { updateDisplay, calculateResult, clearDisplay , } = calculatorSlice.actions;
+export const { updateDisplay, calculateResult, clearDisplay , removeCharacter, deleteLastCharacter } = calculatorSlice.actions;
 
 export default calculatorSlice.reducer;

@@ -1,27 +1,24 @@
-
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
+  }
+
 html:root { 
-    --main-background: rgba(14, 24, 30, 0.95);
-    --screen-background: hsl(224, 36%, 15%);
-    --key-background-dark-blue: hsl(225, 21%, 49%);
-    --key-shadow-dark-green:  rgba(87, 147, 184, 0.95);
-    --key-background-green:rgba(14, 24, 30, 0.95);
-    --key-background-orange: hsl(30, 25%, 89%);
-    --key-shadow-orange: hsl(28, 16%, 65%);
-    --very-dark-grayish-blue: hsl(221, 14%, 31%);
+   --main-background: rgba(14, 24, 30, 0.95); /* utilizao */
+    --screen-background: hsl(224, 36%, 15%); /* utilizao */
+    --key-background-dark-blue: hsl(225, 21%, 49%); /* utilizao */
+    --key-background-blue:rgba(14, 24, 30, 0.95); /* utilizao */
     --white: #fff;
     --white-text: #fff;
+    --blue-text:  rgba(103, 186, 238, 0.95);
 }
 body{
     min-width: 100vw;
     min-height: 100vh;
-    color: white;
+    color: var(--white-text);
     background-color: var(--main-background);
-    background: linear-gradient(162deg, rgba(14, 24, 30, 0.95) 55%, rgba(39, 64, 80, 0.95) 96%);
+    background: linear-gradient(162deg, var(--key-background-blue) 55%, rgba(39, 64, 80, 0.95) 96%);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -38,16 +35,5 @@ input {
     margin: 1.3rem 0;
     border-radius: 0.5rem;
 }
-button {
-    border-radius: 0.3rem;
-    padding: 10px;
-    font-size: 1.2rem;
-    opacity: 0.8;
-    cursor: pointer;
-    max-width:  65px;
-   color: white;
-    background-color: var(--key-background-green);
-   
-    box-shadow: var(--key-shadow-dark-green);
-   
-}
+
+
