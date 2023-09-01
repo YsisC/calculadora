@@ -1,6 +1,6 @@
 "use client";
 
-import { Calculadora } from "@/components/Calculator";
+import { Calculadora } from "@/components/Calculator/Calculator";
 
 const HomePage = () => {
 

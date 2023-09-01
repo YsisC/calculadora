@@ -5,7 +5,7 @@ import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import {
   removeCharacter,
   deleteHistory,
-} from "../redux/features/calculatorSlice";
+} from "../../redux/features/calculatorSlice";
 import DeleteForeverOutlinedIcon from "@mui/icons-material/DeleteForeverOutlined";
 import HistoryOutlinedIcon from "@mui/icons-material/HistoryOutlined";
 
@@ -24,7 +24,7 @@ export const HistoryList = () => {
 
   return (
     <div className={styles.historyContainer}>
-      <h2 className={styles.text_primary}>History</h2>
+      <h2 className={"text_primary"}>History</h2>
 
       {history.map((entry, index) => (
         <div key={index} className={styles.historyItem}>

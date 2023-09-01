@@ -49,3 +49,17 @@ input {
     text-decoration: underline;
   }
 
+  .text_primary{
+    color:  rgba(103, 186, 238, 0.95);
+    text-transform: uppercase;
+    font-size: xx-larger;
+    margin-bottom: 1rem;;
+}
+
+button {
+  background-color:   rgba(103, 186, 238, 0.95);
+  color: inherit;
+  padding: 1rem 1.1rem 1rem 1.1rem;
+  border: none;
+  border-radius: 1px;
+}

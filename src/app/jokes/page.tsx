@@ -1,8 +1,11 @@
+import { JokeList } from '@/components/Joke/Joke'
 import React from 'react'
 
 const JokePage = () => {
   return (
-    <div>Joke </div>
+    <main className='s' >
+      <JokeList />
+    </main>
   )
 }
 

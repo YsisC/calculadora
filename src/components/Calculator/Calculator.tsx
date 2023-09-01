@@ -6,14 +6,14 @@ import {
   calculateResult,
   clearDisplay,
   deleteLastCharacter,
-} from "../redux/features/calculatorSlice";
+} from "../../redux/features/calculatorSlice";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import styles from "./Calculator.module.css";
 import { DeleteForeverOutlined } from "@mui/icons-material";
 import BackspaceOutlinedIcon from "@mui/icons-material/BackspaceOutlined";
 import HistoryOutlinedIcon from "@mui/icons-material/HistoryOutlined";
 import Image from "next/image";
-import chuck from "../../public/face-chuck-norris.png";
+import chuck from "../../../public/face-chuck-norris.png";
 import Link from "next/link";
 
 export const Calculadora = () => {
@@ -37,7 +37,7 @@ export const Calculadora = () => {
   };
 
   return (
-    <div className={styles.calculator_container}>
+    <section className={styles.calculator_container}>
       <div className={`${styles.navbar}`}>
         <Link href={"jokes"} passHref>
           <Image src={chuck} height={40} alt="chuck" />
@@ -176,6 +176,6 @@ export const Calculadora = () => {
           =
         </button>
       </div>
-    </div>
+    </section>
   );
 };

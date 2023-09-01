@@ -1,4 +1,4 @@
-import { HistoryList } from '@/components/HistoryList'
+import { HistoryList } from '@/components/HistoryList/HistoryList'
 import React from 'react'
 
  const HistoryPage = () => {
