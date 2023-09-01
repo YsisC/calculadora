@@ -38,6 +38,9 @@ const calculatorSlice = createSlice({
    state.history =   state.history.filter( 
     op => op.expression !== action.payload.expression )
     },
+    deleteHistory: (state) => {
+      state.history = []
+    },
     clearDisplay: (state) => {
       state.displayValue = '';
     },
@@ -45,6 +48,11 @@ const calculatorSlice = createSlice({
   },
 });
 
-export const { updateDisplay, calculateResult, clearDisplay , removeCharacter, deleteLastCharacter } = calculatorSlice.actions;
+export const { updateDisplay, 
+  calculateResult, 
+  clearDisplay , 
+  removeCharacter, 
+  deleteLastCharacter,
+  deleteHistory } = calculatorSlice.actions;
 
 export default calculatorSlice.reducer;

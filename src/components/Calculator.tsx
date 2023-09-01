@@ -9,6 +9,12 @@ import {
 } from "../redux/features/calculatorSlice";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import styles from "./Calculator.module.css";
+import { DeleteForeverOutlined } from "@mui/icons-material";
+import BackspaceOutlinedIcon from "@mui/icons-material/BackspaceOutlined";
+import HistoryOutlinedIcon from "@mui/icons-material/HistoryOutlined";
+import Image from "next/image";
+import chuck from "../../public/face-chuck-norris.png";
+import Link from "next/link";
 
 export const Calculadora = () => {
   const displayValue = useAppSelector((state) => state.calculator.displayValue);
@@ -31,23 +37,31 @@ export const Calculadora = () => {
   };
 
   return (
-    <div className={styles.calculator_container}> 
-    
+    <div className={styles.calculator_container}>
+      <div className={`${styles.navbar}`}>
+        <Link href={"jokes"} passHref>
+          <Image src={chuck} height={40} alt="chuck" />
+        </Link>
+        <Link className={`link`}href={"history"} passHref>
+        <HistoryOutlinedIcon />
+
+        </Link>
+      </div>
       <input className={`${styles.display}`} type="text" value={displayValue} />
       <div className={styles.calculator}>
         {/* Primer bloque */}
-        <button className={`${styles.button}`} onClick={handleClear}>
+        <button className={`${styles.button} ${styles.operator}`} onClick={handleClear}>
           AC
         </button>
         <button
-          className={`${styles.button}`}
+          className={`${styles.button} `}
           onClick={() => handleButtonClick("7")}
         >
           7
         </button>
         <button
           className={`${styles.button}`}
-          onClick={() => handleButtonClick("8")}
+          onClick={() => handleButtonClick("4")}
         >
           4
         </button>
@@ -60,7 +74,7 @@ export const Calculadora = () => {
 
         <button
           onClick={() => handleButtonClick("%")}
-          className={`${styles.button} ${styles.operator}`}
+          className={`${styles.button} `}
         >
           {" "}
           %{" "}
@@ -68,11 +82,11 @@ export const Calculadora = () => {
 
         {/* segundo bloque */}
         <button
-          className={`${styles.button}`}
+          className={`${styles.button} ${styles.operator}`}
           onClick={() => handleDelete(displayValue)}
         >
           {" "}
-          B{" "}
+          <BackspaceOutlinedIcon />
         </button>
         <button
           className={`${styles.button}`}
@@ -82,12 +96,10 @@ export const Calculadora = () => {
         </button>
         <button
           className={`${styles.button}`}
-          onClick={() => handleButtonClick("9")}
+          onClick={() => handleButtonClick("5")}
         >
           5
         </button>
-
-   
 
         <button
           className={`${styles.button}`}
@@ -102,21 +114,20 @@ export const Calculadora = () => {
           0
         </button>
 
-               {/* Tercero bloque */}
+        {/* Tercero bloque */}
         <button
-          className={`${styles.button} ${styles.operator}`}
+          className={`${styles.button} ${styles.operator} link`}
           onClick={() => handleButtonClick("/")}
         >
           /
         </button>
-               <button
+        <button
           className={`${styles.button}`}
           onClick={() => handleButtonClick("9")}
         >
           9
         </button>
-  
-     
+
         <button
           className={`${styles.button}`}
           onClick={() => handleButtonClick("6")}
@@ -135,18 +146,17 @@ export const Calculadora = () => {
         >
           .
         </button>
-   
-   
+
         {/* tercer bloque */}
         <button
-          className={`${styles.button} ${styles.operator}`}
+          className={`${styles.button} ${styles.operator} link`}
           onClick={() => handleButtonClick("*")}
         >
           *
         </button>
 
         <button
-           className={`${styles.button} ${styles.operator}`}
+          className={`${styles.button} ${styles.operator}`}
           onClick={() => handleButtonClick("-")}
         >
           {" "}
@@ -159,18 +169,13 @@ export const Calculadora = () => {
           +
         </button>
 
-
-    
         <button
           className={`${styles.button} ${styles.equal} `}
           onClick={handleCalculate}
         >
           =
         </button>
-
-    
-    
       </div>
-      </div>
+    </div>
   );
 };

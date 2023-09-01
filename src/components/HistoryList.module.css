@@ -4,6 +4,8 @@ display: flex;
 flex-direction: column;
 align-items: center;
 width: 100vw;
+height: 100vh;
+padding: 1rem;
 }
 
 .historyItem{
@@ -24,8 +26,12 @@ width: 100vw;
 }
 .expression {
     font-size: medium;
-    margin-left: 0.8rem;;
+    margin-right: 0.8rem;;
 
+}
+.button {
+    background-color: inherit;
+    border: none;
 }
 .result {
     color:  rgba(103, 186, 238, 0.95);
@@ -41,5 +47,6 @@ width: 100vw;
     .historyItem{
         padding: 1.5rem;
         width: 100%;
+        height: 85px;
     }
 }

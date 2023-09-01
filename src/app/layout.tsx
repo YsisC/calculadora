@@ -18,7 +18,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <link type="image/png" sizes="16x16" rel="icon" href=".../icons8-chuck-norris-16.png"></link>
       <body  suppressHydrationWarning={true} className={inter.className}>
+      
         <Providers>
         {children}
         </Providers>

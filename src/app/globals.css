@@ -36,4 +36,16 @@ input {
     border-radius: 0.5rem;
 }
 
+.link {
+    color:  rgba(103, 186, 238, 0.95);
+  }
+
+  .link_second {
+    color: white;
+  }
+
+  .underline {
+    margin-top: 2rem;
+    text-decoration: underline;
+  }
 
