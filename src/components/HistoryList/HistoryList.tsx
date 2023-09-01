@@ -23,7 +23,7 @@ export const HistoryList = () => {
   };
 
   return (
-    <div className={styles.historyContainer}>
+    <section className={styles.historyContainer}>
       <h2 className={"text_primary"}>History</h2>
 
       {history.map((entry, index) => (
@@ -58,6 +58,6 @@ export const HistoryList = () => {
           Clear
         </button>
       )}
-    </div>
+    </section>
   );
 };

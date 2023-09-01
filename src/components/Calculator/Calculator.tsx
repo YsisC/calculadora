@@ -9,11 +9,10 @@ import {
 } from "../../redux/features/calculatorSlice";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import styles from "./Calculator.module.css";
-import { DeleteForeverOutlined } from "@mui/icons-material";
 import BackspaceOutlinedIcon from "@mui/icons-material/BackspaceOutlined";
 import HistoryOutlinedIcon from "@mui/icons-material/HistoryOutlined";
 import Image from "next/image";
-import chuck from "../../../public/face-chuck-norris.png";
+import chuck from "../../../public/logochuck.png";
 import Link from "next/link";
 
 export const Calculadora = () => {
