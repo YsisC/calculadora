@@ -22,7 +22,7 @@ const calculatorSlice = createSlice({
       try {
         const expression = state.displayValue;
         const result = eval(expression.toString());
-        state.displayValue = result
+        state.displayValue = result.toString()
         state.history.push({
             expression,
             result

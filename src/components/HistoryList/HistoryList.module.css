@@ -1,21 +1,23 @@
-
+.wraper{
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+}
 .historyContainer{
 display: flex;
 flex-direction: column;
 align-items: center;
-width: 100vw;
-height: 100vh;
 padding: 1rem;
+height: 85vh;
 }
 
 .historyItem{
-    margin-bottom: 1rem;
     display: flex;
     justify-content: end;
    flex-direction: column;
     gap: 5px;
-    width: 70vw;
-    height: 55px;
+    width: 35vw;
+    height: 5rem;
     margin-bottom: 1rem;;
     border-bottom: 1px solid   rgba(103, 186, 238, 0.95);;
 }
@@ -23,6 +25,9 @@ padding: 1rem;
     display: flex; 
     justify-content: end;
     
+}
+.headerHistory p{
+font-size: medium ;
 }
 .expression {
     font-size: medium;
@@ -33,15 +38,27 @@ padding: 1rem;
     background-color: inherit;
     border: none;
 }
+.buttondelete {
+    padding: 0;
+    color: inherit;
+    background-color: inherit;
+    /* width: 5rem; */
+}
 .result {
     color:  rgba(103, 186, 238, 0.95);
     font-size: x-larger;
 }
-
+.footerHistory{
+    display: flex;
+    flex-direction: column;
+}
 @media (max-width: 800px) {
     .historyItem{
-        padding: 1.5rem;
+        padding: 1rem;
         width: 100%;
         height: 85px;
+        gap: 5px;
+        margin-bottom: 0.5rem;
+        
     }
 }

@@ -11,6 +11,8 @@ import {
     PURGE,
     REGISTER,
   } from 'redux-persist';
+import { chuckNorrisApi } from "./services/chuckNorrisApi";
+import { setupListeners } from "@reduxjs/toolkit/dist/query";
 
   const persistConfig = {
     key: 'root',
@@ -22,16 +24,17 @@ import {
 export const store = configureStore({
     reducer: {
         calculator: persistedReducer,
+        [chuckNorrisApi.reducerPath]: chuckNorrisApi.reducer,
     },
     middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-    })
+    }).concat([chuckNorrisApi.middleware])
 })
 
-
+setupListeners(store.dispatch)
 
 export const persistor = persistStore(store)
 

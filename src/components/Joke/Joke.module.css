@@ -7,9 +7,10 @@
     padding-top: 2rem;
 }
 .card {
+    margin-top: 5rem;
     background-color: black;
-    width: 80vw;
-    padding: 2rem 0 2rem 0;
+    width: 50vw;
+    padding: 2rem;
     border-radius: 0.5rem;
     display: flex;
     flex-direction: column;
@@ -17,11 +18,37 @@
     justify-content: center;
     gap: 1.5rem;
 }
-.jokeListContainer button:hover {
-    cursor: not-allowed;
+
+.card p {
+text-align: center;
 }
-@media (max-width: 800px) {
+
+.jokeListContainer button:hover {
+    cursor: pointer;
+scale: 1.1;
+  
+    transition: 0.4s ease-in;
+}
+.button {
+    padding: 1rem 1.1rem 1rem 1.1rem;
+    text-transform: uppercase;
+}
+@media (max-width: 1020px) {
     .card {
         width: 90vw;
+        margin-top: 3rem;
+    }
+}
+
+@media (max-width: 1440px) {
+    .card {
+    width: 70vw;
+    }
+}
+
+@media (max-width: 1020px) {
+    .card {
+        width: 90vw;
+        margin-top: 3rem;
     }
 }

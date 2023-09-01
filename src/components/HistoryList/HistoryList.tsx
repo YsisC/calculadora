@@ -23,8 +23,10 @@ export const HistoryList = () => {
   };
 
   return (
-    <section className={styles.historyContainer}>
+    <section className={styles.wraper}>
+      <div className={styles.historyContainer}>
       <h2 className={"text_primary"}>History</h2>
+
 
       {history.map((entry, index) => (
         <div key={index} className={styles.historyItem}>
@@ -51,13 +53,19 @@ export const HistoryList = () => {
           </Link>
         </div>
       ) : (
+        <div className={styles.footerHistory}> 
         <button
-          onClick={() => handleDeleteHistory()}
-          className={`${styles.button} link underline`}
+        onClick={() => handleDeleteHistory()}
+        className={`${styles.buttondelete} link underline`}  //Revisar
         >
           Clear
         </button>
+                    <Link className={`link underline`} href={"/"}>
+          Volver
+        </Link></div> 
       )}
+              
+              </div>
     </section>
   );
 };
