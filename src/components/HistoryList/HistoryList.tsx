@@ -47,9 +47,9 @@ export const HistoryList = () => {
       ))}
       {history.length === 0 ? (
         <div className={styles.historyContainer}>
-          <p>No hay historial</p>
+          <p>No history</p>
           <Link className={`link underline`} href={"/"}>
-            Volver
+           To return
           </Link>
         </div>
       ) : (
@@ -61,7 +61,7 @@ export const HistoryList = () => {
           Clear
         </button>
                     <Link className={`link underline`} href={"/"}>
-          Volver
+                    To return
         </Link></div> 
       )}
               

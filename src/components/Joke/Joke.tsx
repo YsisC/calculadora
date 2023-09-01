@@ -24,7 +24,7 @@ export const Joke = () => {
        <button onClick={handleGetJokeClick} className={styles.button}>Get another Joke</button>
   
       </div>
-      <Link className={"link underline"} href={'/'}>Volver</Link>
+      <Link className={"link underline"} href={'/'}>To return</Link>
       </section>
   )
 }
