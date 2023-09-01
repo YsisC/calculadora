@@ -17,3 +17,11 @@
     justify-content: center;
     gap: 1.5rem;
 }
+.jokeListContainer button:hover {
+    cursor: not-allowed;
+}
+@media (max-width: 800px) {
+    .card {
+        width: 90vw;
+    }
+}
