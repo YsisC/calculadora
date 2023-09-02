@@ -1,64 +1,78 @@
-.wraper{
-    overflow: hidden;
-    width: 100vw;
-    height: 100vh;
+.wraper {
+  overflow: hidden;
 }
-.historyContainer{
-display: flex;
-flex-direction: column;
-align-items: center;
-padding: 1rem;
-height: 85vh;
+.historyContainer {
+  width: 100vw;
+  height: 100vh;
 }
 
-.historyItem{
-    display: flex;
-    justify-content: end;
-   flex-direction: column;
-    gap: 5px;
-    width: 35vw;
-    height: 5rem;
-    margin-bottom: 1rem;;
-    border-bottom: 1px solid   rgba(103, 186, 238, 0.95);;
+.historyContainer h2 {
+  text-align: center;
+}
+.itemContainer {
+  width: 100vw;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+
+}
+
+.historyItem {
+  display: flex;
+  justify-content: end;
+  flex-direction: column;
+  gap: 5px;
+  width: 100%;
+  height: 5rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid rgba(103, 186, 238, 0.95);
 }
 .headerHistory {
-    display: flex; 
-    justify-content: end;
-    
+  display: flex;
+  justify-content: end;
 }
-.headerHistory p{
-font-size: medium ;
+.headerHistory p {
+  font-size: medium;
 }
 .expression {
-    font-size: medium;
-    margin-right: 0.8rem;;
-
+  font-size: medium;
+  margin-right: 0.8rem;
 }
 .button {
-    background-color: inherit;
-    border: none;
+  background-color: inherit;
+  border: none;
 }
 .buttondelete {
-    padding: 0;
-    color: inherit;
-    background-color: inherit;
-    /* width: 5rem; */
+  padding: 0;
+  color: inherit;
+  background-color: inherit;
+  /* width: 5rem; */
 }
 .result {
-    color:  rgba(103, 186, 238, 0.95);
-    font-size: x-larger;
+  color: rgba(103, 186, 238, 0.95);
+  font-size: x-larger;
 }
-.footerHistory{
-    display: flex;
-    flex-direction: column;
+.footerHistory {
+  display: flex;
+  flex-direction: column;
 }
-@media (max-width: 800px) {
-    .historyItem{
-        padding: 1rem;
-        width: 100%;
-        height: 85px;
-        gap: 5px;
-        margin-bottom: 0.5rem;
-        
-    }
+
+@media (min-width: 768px) {
+  .historyItem {
+    padding: 1rem;
+    width: 85%;
+    height: 80%;
+    gap: 5px;
+    margin-bottom: 0.5rem;
+  }
+}
+/* Estilos específicos para pantallas de 1024px o más */
+@media (min-width: 1024px) {
+    .historyItem {
+        width: 50%;
+        height: 70%;
+      }
+      
 }

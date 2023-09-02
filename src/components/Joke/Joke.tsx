@@ -12,19 +12,19 @@ export const Joke = () => {
     // Llamamos a useGetJokeQuery nuevamente cuando se hace clic en el botón
     refetch();
   };
-  if (isLoading || isFetching) return <p>Loadding..</p>
+  if (isLoading || isFetching) return <p>Loading..</p>
   if (error) return <p>Some error</p> 
 
   return (
     <section className={styles.jokeListContainer}>
-      <h2 className={"text_primary"}>Joke Chuck Norris</h2>
+      <h2 className={"text_primary"}>Chuck Norris Jokes</h2>
       <div  className={styles.card}>
         <p> {data?.value}</p>
        < Image src={chuckFace} alt={"joke"} width={50} height={50} />
        <button onClick={handleGetJokeClick} className={styles.button}>Get another Joke</button>
   
       </div>
-      <Link className={"link underline"} href={'/'}>To return</Link>
+      <Link className={"link underline"} href={'/'}>Return</Link>
       </section>
   )
 }

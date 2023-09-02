@@ -27,7 +27,7 @@ export const HistoryList = () => {
       <div className={styles.historyContainer}>
       <h2 className={"text_primary"}>History</h2>
 
-
+      <div className={styles.itemContainer}>
       {history.map((entry, index) => (
         <div key={index} className={styles.historyItem}>
           <div className={styles.headerHistory}>
@@ -49,7 +49,7 @@ export const HistoryList = () => {
         <div className={styles.historyContainer}>
           <p>No history</p>
           <Link className={`link underline`} href={"/"}>
-           To return
+           Return
           </Link>
         </div>
       ) : (
@@ -61,10 +61,13 @@ export const HistoryList = () => {
           Clear
         </button>
                     <Link className={`link underline`} href={"/"}>
-                    To return
+                    Return
         </Link></div> 
       )}
               
+
+</div>
+     
               </div>
     </section>
   );

@@ -18,6 +18,9 @@ const calculatorSlice = createSlice({
     updateDisplay: (state, action) => {
       state.displayValue += action.payload;
     },
+    changeDisplay: (state, action) => {
+      state.displayValue = action.payload;
+    },
     calculateResult: (state) => {
       try {
         const expression = state.displayValue;
@@ -49,6 +52,7 @@ const calculatorSlice = createSlice({
 });
 
 export const { updateDisplay, 
+  changeDisplay,
   calculateResult, 
   clearDisplay , 
   removeCharacter, 

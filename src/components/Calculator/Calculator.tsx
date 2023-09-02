@@ -3,14 +3,14 @@
 import React, { useState } from "react";
 import {
   updateDisplay,
+  changeDisplay,
   calculateResult,
   clearDisplay,
   deleteLastCharacter,
 } from "../../redux/features/calculatorSlice";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import styles from "./Calculator.module.css";
-import BackspaceOutlinedIcon from "@mui/icons-material/BackspaceOutlined";
-import HistoryOutlinedIcon from "@mui/icons-material/HistoryOutlined";
+import {BackspaceOutlined,HistoryOutlined } from "@mui/icons-material";
 import Image from "next/image";
 import chuck from "../../../public/logochuck.png";
 import Link from "next/link";
@@ -27,13 +27,24 @@ export const Calculadora = () => {
     dispatch(deleteLastCharacter(value));
   };
 
-  const handleCalculate = () => {
+  const handleCalculate = (e: React.KeyboardEvent<HTMLInputElement>) => {
+
     dispatch(calculateResult());
   };
 
   const handleClear = () => {
     dispatch(clearDisplay());
   };
+
+  const handleEnter = ( e: React.KeyboardEvent<HTMLInputElement >): void => {
+    if (e.key === 'Enter') {
+      dispatch(calculateResult());
+    }
+  }
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    dispatch(changeDisplay(e.target.value))
+  }
 
   return (
     <section className={styles.calculator_container}>
@@ -42,11 +53,14 @@ export const Calculadora = () => {
           <Image src={chuck} height={40} alt="chuck" />
         </Link>
         <Link className={`link`}href={"history"} passHref>
-        <HistoryOutlinedIcon />
+        <HistoryOutlined />
 
         </Link>
       </div>
-      <input className={`${styles.display}`} type="text" value={displayValue} />
+      <input 
+      onKeyUp={handleEnter} 
+      onChange={handleChange}
+      className={`${styles.display}`} type="text" value={displayValue} />
       <div className={styles.calculator}>
         {/* Primer bloque */}
         <button className={`${styles.button} ${styles.operator}`} onClick={handleClear}>
@@ -85,7 +99,7 @@ export const Calculadora = () => {
           onClick={() => handleDelete(displayValue)}
         >
           {" "}
-          <BackspaceOutlinedIcon />
+          <BackspaceOutlined />
         </button>
         <button
           className={`${styles.button}`}
