@@ -1,10 +1,11 @@
 // "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import {
   updateDisplay,
   changeDisplay,
   calculateResult,
+  calculatePercentage,
   clearDisplay,
   deleteLastCharacter,
 } from "../../redux/features/calculatorSlice";
@@ -27,9 +28,13 @@ export const Calculadora = () => {
     dispatch(deleteLastCharacter(value));
   };
 
-  const handleCalculate = (e: React.KeyboardEvent<HTMLInputElement>) => {
+  const handleCalculate = () => {
 
     dispatch(calculateResult());
+  };
+  const handleCalculatePercentage = () => {
+
+    dispatch(calculatePercentage());
   };
 
   const handleClear = () => {
@@ -86,7 +91,7 @@ export const Calculadora = () => {
         </button>
 
         <button
-          onClick={() => handleButtonClick("%")}
+          onClick={ handleCalculatePercentage}
           className={`${styles.button} `}
         >
           {" "}

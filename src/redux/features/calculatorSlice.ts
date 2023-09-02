@@ -1,22 +1,34 @@
 // calculatorSlice.js
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
 type HistoryEntry = {
-    expression: string;
-    result: string;
-  };
+  expression: string;
+  result: string;
+};
 
 const initialState = {
-  displayValue: '',
+  displayValue: "",
   history: [] as HistoryEntry[],
 };
 
 const calculatorSlice = createSlice({
-  name: 'calculator',
+  name: "calculator",
   initialState,
   reducers: {
     updateDisplay: (state, action) => {
-      state.displayValue += action.payload;
+      const newValue = action.payload;
+
+      if (newValue === "0" && state.displayValue === "0") {
+        // Evita agregar dos ceros seguidos
+        return;
+      }
+      if (state.displayValue === "0") {
+        if (newValue !== "0" && newValue !== ".") {
+          state.displayValue = "";
+        }
+      }
+
+      state.displayValue += newValue;
     },
     changeDisplay: (state, action) => {
       state.displayValue = action.payload;
@@ -25,38 +37,55 @@ const calculatorSlice = createSlice({
       try {
         const expression = state.displayValue;
         const result = eval(expression.toString());
-        state.displayValue = result.toString()
+        state.displayValue = result.toString();
         state.history.push({
-            expression,
-            result
-          });
+          expression,
+          result,
+        });
       } catch (error) {
-        state.displayValue = 'Error';
+        state.displayValue = "Error";
+      }
+    },
+    calculatePercentage: (state) => {
+      try {
+        const expression = state.displayValue;
+
+        const result = (eval(expression.toString()) / 100).toString();
+        state.displayValue = result;
+        state.history.push({
+          expression,
+          result,
+        });
+      } catch (error) {
+        state.displayValue = "Error";
       }
     },
     deleteLastCharacter: (state) => {
-      state.displayValue = state.displayValue.slice(0, -1); // Elimina el último carácter
+      state.displayValue = state.displayValue.slice(0, -1);
     },
     removeCharacter: (state, action) => {
-   state.history =   state.history.filter( 
-    op => op.expression !== action.payload.expression )
+      state.history = state.history.filter(
+        (op) => op.expression !== action.payload.expression
+      );
     },
     deleteHistory: (state) => {
-      state.history = []
+      state.history = [];
     },
     clearDisplay: (state) => {
-      state.displayValue = '';
+      state.displayValue = "";
     },
-   
   },
 });
 
-export const { updateDisplay, 
+export const {
+  updateDisplay,
   changeDisplay,
-  calculateResult, 
-  clearDisplay , 
-  removeCharacter, 
+  calculateResult,
+  clearDisplay,
+  calculatePercentage,
+  removeCharacter,
   deleteLastCharacter,
-  deleteHistory } = calculatorSlice.actions;
+  deleteHistory,
+} = calculatorSlice.actions;
 
 export default calculatorSlice.reducer;
